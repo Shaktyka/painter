@@ -6,6 +6,7 @@ const clearBtn = document.querySelector('.clear');
 const HORIZ_AMOUNT = 20;
 const VERT_AMOUNT = 19;
 
+// Раскрашивание холста и ластик
 canvas.addEventListener(`click`, (evt) => {
   let clicked = evt.target;
   if (!eraser.checked) {
@@ -15,6 +16,7 @@ canvas.addEventListener(`click`, (evt) => {
   }
 });
 
+// Полная очистка холста
 clearBtn.onclick = () => {
   const pixels = document.querySelectorAll(`.pixel`);
   pixels.forEach((pixel) => {
@@ -22,6 +24,7 @@ clearBtn.onclick = () => {
   });
 };
 
+// Генерирует канвас
 const initCanvas = (cellAmount) => {
   const fragment = new DocumentFragment();
   for (let i = 0; i < cellAmount; i++) {
