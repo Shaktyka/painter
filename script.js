@@ -3,18 +3,33 @@ const chosenColor = document.querySelector('.chosen-color');
 const eraser = document.querySelector('.eraser');
 const clearBtn = document.querySelector('.clear');
 
-canvas.addEventListener('click', function(evt) {
+const HORIZ_AMOUNT = 20;
+const VERT_AMOUNT = 19;
+
+canvas.addEventListener(`click`, (evt) => {
   let clicked = evt.target;
   if (!eraser.checked) {
     clicked.style.backgroundColor = chosenColor.value;
   } else {
-    clicked.style.backgroundColor = 'white';
+    clicked.style.backgroundColor = `white`;
   }
 });
 
 clearBtn.onclick = () => {
-  const pixels = document.querySelectorAll('.pixel');
+  const pixels = document.querySelectorAll(`.pixel`);
   pixels.forEach((pixel) => {
-  	pixel.style.backgroundColor = 'white';
+  	pixel.style.backgroundColor = `white`;
   });
 };
+
+const initCanvas = (cellAmount) => {
+  const fragment = new DocumentFragment();
+  for (let i = 0; i < cellAmount; i++) {
+  	const div = document.createElement(`div`);
+  	div.className = `pixel`;
+    fragment.append(div);
+  }
+  canvas.append(fragment);
+};
+
+initCanvas(HORIZ_AMOUNT * VERT_AMOUNT);
