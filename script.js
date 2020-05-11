@@ -6,6 +6,13 @@ const clearBtn = document.querySelector('.clear');
 const HORIZ_AMOUNT = 20;
 const VERT_AMOUNT = 19;
 
+// Добавляет сброс выбранного состояния ластика
+chosenColor.onclick = () => {
+  if (eraser.checked) {
+  	document.querySelector(`.eraser`).checked = false;
+  }
+};
+
 // Раскрашивание холста и ластик
 canvas.addEventListener(`click`, (evt) => {
   let clicked = evt.target;
@@ -22,6 +29,7 @@ clearBtn.onclick = () => {
   pixels.forEach((pixel) => {
   	pixel.style.backgroundColor = `white`;
   });
+  document.querySelector(`.eraser`).checked = false;
 };
 
 // Генерирует канвас
