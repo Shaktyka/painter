@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>ПиксельАрт</title>
-  </head>
-  <body>
-    <h1 class="visually-hidden">Редактор пиксельной графики</h1>
-    <div class="controls">
-      <div class="container">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>ПиксельАрт</title>
+</head>
+
+<body>
+  <h1 class="visually-hidden">Редактор пиксельной графики</h1>
+  <div class="controls">
+    <ul class="controls-list">
+      <li>
         <select class="chosen-color" name="chosen-color">
           <option value="black">Чёрный</option>
           <option value="white">Белый</option>
@@ -28,15 +31,20 @@
           <option value="mediumpurple">Фиолетовый</option>
           <option value="purple">Пурпурный</option>
         </select>
+      </li>
+      <li>
         <input class="eraser visually-hidden" id="eraser-mode" type="checkbox" name="eraser">
         <label class="eraser-label" for="eraser-mode">Ластик</label>
+      </li>
+      <li>
         <button class="clear" type="button">Очистить</button>
-      </div>
-    </div>
+      </li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="canvas"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
 
-    <div class="main">
-      <div class="canvas"></div>
-    </div>
-    <script src="script.js"></script>
-  </body>
 </html>
